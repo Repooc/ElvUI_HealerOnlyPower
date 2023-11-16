@@ -1,0 +1,7 @@
+package-as: ElvUI_HealerOnlyPower
+manual-changelog:
+    filename: CHANGELOG.md
+    markup-type: bbcode
+    markup-type: markdown
+move-folders:
+    ElvUI_HealerOnlyPower/ElvUI_HealerOnlyPower: ElvUI_HealerOnlyPower
