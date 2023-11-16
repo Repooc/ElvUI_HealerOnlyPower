@@ -1,4 +1,4 @@
-# Healer Only Power for ElvUI (ElvUI Plugin)
+# Healer Only Power (ElvUI Plugin)
 [![Discord](https://img.shields.io/discord/1162274244487561216?style=for-the-badge&logo=discord&label=Discord)](https://repoocreforged.dev/discord) ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&label=Latest%20Version)
 
 Have you ever wanted to streamline your ElvUI unitframes by hiding power bars for non-healer roles?
