@@ -1,5 +1,6 @@
 # Healer Only Power (ElvUI Plugin)
-[![Discord](https://img.shields.io/discord/1162274244487561216?style=for-the-badge&logo=discord&label=Discord)](https://repoocreforged.dev/discord) ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&label=Latest%20Version) [![GitHub Repo stars](https://img.shields.io/github/stars/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&logo=github)](https://github.com/Repooc/ElvUI_HealerOnlyPower) [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/repoocreforged) [![ko-fi](https://img.shields.io/badge/%E2%9D%A4%EF%B8%8FDonate-Ko--Fi-red?style=for-the-badge&logo=heart)](https://ko-fi.com/repoocreforged) 
+[![Discord](https://img.shields.io/discord/1162274244487561216?style=for-the-badge&logo=discord&label=Discord)](https://repoocreforged.dev/discord) ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&label=Latest%20Version) [![GitHub Repo stars](https://img.shields.io/github/stars/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&logo=github)](https://github.com/Repooc/ElvUI_HealerOnlyPower) [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/repoocreforged) [![ko-fi](https://img.shields.io/badge/_-KO--FI-red?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/repoocreforged) 
+
 
 Have you ever wanted to streamline your ElvUI unitframes by hiding power bars for non-healer roles?
 
@@ -20,5 +21,3 @@ Your input is crucial in shaping the journey of this addon. Thank you for being 
 *Note: Ensure you have ElvUI installed for optimal functionality.*
 
 Download now and elevate your healing gameplay!
-
-
