@@ -1,5 +1,10 @@
+[![Discord](https://img.shields.io/discord/1162274244487561216?style=for-the-badge&logo=discord&label=Discord)](https://repoocreforged.dev/discord) [![GitHub Repo stars](https://img.shields.io/github/stars/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&logo=github)](https://github.com/Repooc/ElvUI_HealerOnlyPower)
+
 # Healer Only Power (ElvUI Plugin)
-[![Discord](https://img.shields.io/discord/1162274244487561216?style=for-the-badge&logo=discord&label=Discord)](https://repoocreforged.dev/discord) ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&label=Latest%20Version) [![GitHub Repo stars](https://img.shields.io/github/stars/repooc/ElvUI_HealerOnlyPower?style=for-the-badge&logo=github)](https://github.com/Repooc/ElvUI_HealerOnlyPower) [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/repoocreforged) [![ko-fi](https://img.shields.io/badge/_-KO--FI-red?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/repoocreforged) 
+[![Version (CF)](https://img.shields.io/curseforge/v/938985?style=for-the-badge&logo=curseforge)](https://curseforge.com/wow/addons/elvui-healer-only-power/) [![GitHub tag (with filter)](https://img.shields.io/github/v/tag/Repooc/ElvUI_HealerOnlyPower?logo=github&label=Version&style=for-the-badge)](https://github.com/Repooc/ElvUI_HealerOnlyPower/tags)
+
+
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/repoocreforged) [![ko-fi](https://img.shields.io/badge/_-KO--FI-red?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/repoocreforged) 
 
 
 Have you ever wanted to streamline your ElvUI unitframes by hiding power bars for non-healer roles?
