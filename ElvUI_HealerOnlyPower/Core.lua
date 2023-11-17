@@ -68,7 +68,7 @@ function module:PLAYER_REGEN_ENABLED()
 	module:UnregisterEvent('PLAYER_REGEN_ENABLED')
 end
 
-function module:Update_RaidFrames(frame, db)
+function module:Update_Frames(frame, db)
 	if not (frame or frame.db or frame:IsShown() or E.db.hop.enable or (frame.unitframeType and E.db.hop.unitframe[frame.unitframeType].healerOnly)) then return end
 
 	if not db.enable or db.power.enable then return end
@@ -108,7 +108,8 @@ function module:UpdateOptions(group)
 	if module.db.enable then
 		if not module:IsHooked(UF, 'Update_RaidFrames') then
 			-- print('|cff00FF98HOP:|r Enabled')
-			module:SecureHook(UF, 'Update_RaidFrames', module.Update_RaidFrames)
+			module:SecureHook(UF, 'Update_PartyFrames', module.Update_Frames)
+			module:SecureHook(UF, 'Update_RaidFrames', module.Update_Frames)
 			module:RegisterEvent('PLAYER_ROLES_ASSIGNED', module.UpdateAllFrames)
 		end
 	elseif not module.db.enable then
