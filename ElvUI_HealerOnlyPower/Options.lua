@@ -1,43 +1,30 @@
 local E, L, _, P, _ = unpack(ElvUI)
 local UF = E.UnitFrames
 local ACH = E.Libs.ACH
-
+local RRP = LibStub('RepoocReforged-1.0')
+RRP:LoadMainCategory()
 local AddOnName = ...
 local module = E:GetModule(AddOnName)
 
 --* Move to locale file is/when I get around to adding locales
 L["CREDITS"] = "Just a want to give credit to The following people for helping me maintain this addon with testing, coding, textures and people who also have helped me through donations. Please note for donation acknowledgments, only the names of people who messaged me or noted in the donation will be listed as you ask (within reason of course)."
 
-local DONATORS = {
-	'None to be displayed at this time.',
-}
-
 local CODERS = {
 	'WRMSRwasTaken (Github)',
-}
-
-local TESTERS = {
-	'|cffeb9f24Tukui Community|r',
-    E:TextGradient('Eltreum', 0.50, 0.70, 1, 0.67, 0.95, 1),
-	'|cFFAAD372Tsxy|r',
 }
 
 local function SortList(a, b)
 	return E:StripString(a) < E:StripString(b)
 end
 
-sort(DONATORS, SortList)
 sort(CODERS, SortList)
-sort(TESTERS, SortList)
 
-local DONATOR_STRING = table.concat(DONATORS, '|n')
 local CODING_STRING = table.concat(CODERS, '|n')
-local TESTER_STRING = table.concat(TESTERS, '|n')
-TESTER_STRING = '|cff00FF98Repooc Reforged|r |cffA330C9Community|r|n'..TESTER_STRING
 
 local function GetOptionsTable_HealerOnlyPower(group)
     local config = ACH:Group('|cff00FF98Healer Only|r |cffA330C9Power|r', nil, 99, nil, function(info) return E.db.hop.unitframe[info[#info-3]][info[#info]] end, function(info, value) E.db.hop.unitframe[info[#info-3]][info[#info]] = value module:UpdateOptions(group) module:UpdateAllFrames(group) end, function(info) return not E.db.hop.enable end)
     config.inline = true
+
     config.args.healerOnly = ACH:Toggle(L["Healer Only"], nil, 1, nil, nil, nil, nil, nil, function(info) return E.db.unitframe.units[group].power.enable end)
     config.args.monitorBloodDK = ACH:Toggle(L["DK Tanks"], nil, 2, nil, nil, nil, nil, nil, function(info) return E.db.unitframe.units[group].power.enable or not E.db.hop.unitframe[group].healerOnly end)
     config.args.monitorBrewMonk = ACH:Toggle(L["Monk Tanks"], nil, 2, nil, nil, nil, nil, nil, function(info) return E.db.unitframe.units[group].power.enable or not E.db.hop.unitframe[group].healerOnly end)
@@ -48,10 +35,12 @@ end
 local function configTable()
     --* Repooc Reforged Plugin section
     local rrp = E.Options.args.rrp
-    if not rrp then
-        rrp = ACH:Group('|cff00FF98Repooc Reforged|r |cffA330C9Plugins|r', nil, 6, nil, nil, nil, function() return not UF.Initialized end)
-	    E.Options.args.rrp = rrp
-    end
+    if not rrp then print("Error Loading Repooc Reforged Plugin Library") return end
+
+    -- if not rrp then
+    --     rrp = ACH:Group('|cff00FF98Repooc Reforged|r |cffA330C9Plugins|r', nil, 6, nil, nil, nil, function() return not UF.Initialized end)
+	--     E.Options.args.rrp = rrp
+    -- end
  
     --* Healer Only Power Section
     local HealerOnlyPower = ACH:Group('|cff00FF98Healer Only|r |cffA330C9Power|r', nil, 6, 'tab', nil, nil, function() return not UF.Initialized end)
@@ -83,16 +72,6 @@ local function configTable()
 	Help.args.coding = Coding
 	Coding.inline = true
 	Coding.args.string = ACH:Description(CODING_STRING, 1, 'medium')
-
-    local Testers = ACH:Group(L["Help Testing Development Versions"], nil, 7)
-	Help.args.testers = Testers
-	Testers.inline = true
-	Testers.args.string = ACH:Description(TESTER_STRING, 1, 'medium')
-
-	local Donators = ACH:Group(L["Donators"], nil, 8)
-	Help.args.donators = Donators
-	Donators.inline = true
-	Donators.args.string = ACH:Description(DONATOR_STRING, 1, 'medium')
 
     --* Modifications for ElvUI UnitFrame section
     local UnitFrames = E.Options.args.unitframe.args.groupUnits.args
