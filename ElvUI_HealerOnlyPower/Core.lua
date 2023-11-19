@@ -115,6 +115,7 @@ function module:UpdateOptions(group)
 	elseif not module.db.enable then
 		if module:IsHooked(UF, 'Update_RaidFrames') then
 			-- print('|cff00FF98HOP:|r Disabled')
+			module:Unhook(UF, 'Update_PartyFrames')
 			module:Unhook(UF, 'Update_RaidFrames')
 			module:UnregisterEvent('PLAYER_ROLES_ASSIGNED')
 		end
