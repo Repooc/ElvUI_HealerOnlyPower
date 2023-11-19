@@ -8,6 +8,7 @@
 ## X-Curse-Project-ID: 938985
 ## X-Wago-ID: bGoMDB60
 ## IconTexture: Interface\AddOns\ElvUI_HealerOnlyPower\Media\Logo
+## OptionalDeps: RepoocReforged-1.0
 
 Profile.lua
 Libs\Load_Libs.xml
