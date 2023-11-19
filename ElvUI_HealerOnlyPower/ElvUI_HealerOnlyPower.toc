@@ -10,5 +10,6 @@
 ## IconTexture: Interface\AddOns\ElvUI_HealerOnlyPower\Media\Logo
 
 Profile.lua
+Libs\Load_Libs.xml
 Core.lua
 Options.lua
