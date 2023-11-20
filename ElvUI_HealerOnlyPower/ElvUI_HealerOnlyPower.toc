@@ -2,7 +2,7 @@
 ## Interface-Wrath: 30403
 ## Title: |cff1784D1ElvUI|r |cff00FF98Healer Only Power|r |cffF48CBA(|r|cffA330C9Retail|r|cffF48CBA)|r
 ## Author: Repooc
-## Version: 1.02
+## Version: 1.03
 ## RequiredDeps: ElvUI
 ## DefaultState: Enabled
 ## X-Curse-Project-ID: 938985
