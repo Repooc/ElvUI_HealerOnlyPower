@@ -23,7 +23,11 @@ local function shouldDisplayBar(frame)
 	local unitframeType = frame.unitframeType
 	if not unitframeType then return end
 	local hopDB = E.db.hop
-	if not hopDB.unitframe[unitframeType].healerOnly then return end
+
+	local unit = hopDB.unitframe[unitframeType]
+	if not unit then return end
+
+	if not unit.healerOnly then return end
 
 	local role = UnitGroupRolesAssigned(frame.unit)
 	if role == 'HEALER' then
@@ -33,8 +37,7 @@ local function shouldDisplayBar(frame)
 	if role ~= 'TANK' then return end
 	local _, class = UnitClass(frame.unit)
 
-	local showTank = hopDB.unitframe[unitframeType]
-	if (class == 'DEATHKNIGHT' and showTank.monitorBloodDK) or (class == 'MONK' and showTank.monitorBrewMonk) then
+	if (class == 'DEATHKNIGHT' and unit.monitorBloodDK) or (class == 'MONK' and unit.monitorBrewMonk) then
 		return true
 	end
 
