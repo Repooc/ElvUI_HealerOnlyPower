@@ -73,8 +73,7 @@ end
 
 function module:Update_Frames(frame, db)
 	if not (frame or frame.db or frame:IsShown() or E.db.hop.enable or (frame.unitframeType and E.db.hop.unitframe[frame.unitframeType].healerOnly)) then return end
-
-	if not db.enable or db.power.enable then return end
+	if not db.enable or db.power.enable or frame.isChild then return end
 
 	if frame.isForced then
 		if random(1, 3) ~= 1 then
