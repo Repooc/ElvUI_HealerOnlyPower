@@ -44,28 +44,47 @@ local function shouldDisplayBar(frame)
 	return
 end
 
-function module:UpdateAllFrames(group)
-	if InCombatLockdown() then
-		module.NeedsUpdating = true
-		module:RegisterEvent('PLAYER_REGEN_ENABLED')
-		return	
+local supportedHeaders = {
+	party = 'ElvUF_Party',
+	raid1 = 'ElvUF_Raid1',
+	raid2 = 'ElvUF_Raid2',
+	raid3 = 'ElvUF_Raid3' 
+}
+
+local function update(group)
+	local frame = _G[supportedHeaders[group]]
+	if not frame then return end
+	for i, groupFrame in next, frame.groups do
+		if groupFrame.Update and groupFrame:IsVisible() then
+			groupFrame:Update()
+		end
 	end
+end
 
-	if group and group ~= 'All' then
-		UF:CreateAndUpdateHeaderGroup(group)
+function module:UpdateAllFrames(specific)
+	if InCombatLockdown() then
+		if not module.NeedsUpdating then
+			module.NeedsUpdating = true
+			module:RegisterEvent('PLAYER_REGEN_ENABLED')
+		end
+		return
+	end
+	
+
+	-- local frame
+	if specific then
+		update(specific)
 	else
-		UF:CreateAndUpdateHeaderGroup('party')
-
-		for i = 1, 3 do
-			UF:CreateAndUpdateHeaderGroup('raid'..i)
-		end	
+		for _, group in next, {'party', 'raid1', 'raid2', 'raid3'} do
+			update(group)
+		end
 	end
 end
 
 function module:PLAYER_REGEN_ENABLED()
 	if module.NeedsUpdating then
-		module:UpdateAllFrames()
 		module.NeedsUpdating = nil	
+		module:UpdateAllFrames()
 	end
 
 	module:UnregisterEvent('PLAYER_REGEN_ENABLED')
@@ -74,6 +93,14 @@ end
 function module:Update_Frames(frame, db)
 	if not (frame or frame.db or frame:IsShown() or E.db.hop.enable or (frame.unitframeType and E.db.hop.unitframe[frame.unitframeType].healerOnly)) then return end
 	if not db.enable or db.power.enable or frame.isChild then return end
+
+	if InCombatLockdown() then
+		if not module.NeedsUpdating then
+			module.NeedsUpdating = true
+			module:RegisterEvent('PLAYER_REGEN_ENABLED')
+		end
+		return
+	end
 
 	if frame.isForced then
 		if random(1, 3) ~= 1 then
@@ -99,7 +126,6 @@ function module:Update_Frames(frame, db)
 	UF:Configure_InfoPanel(frame)
 	UF:Configure_HealthBar(frame)
 	UF:Configure_Power(frame)
-
 	frame:UpdateAllElements('ElvUI_UpdateAllElements')
 end
 
@@ -127,7 +153,8 @@ end
 function module:Initialize()
 	EP:RegisterPlugin(AddOnName, GetOptions)
 	if not UF.Initialized then return end
-	
+
+	module.NeedsUpdating = nil
 	module:UpdateOptions()
 	hooksecurefunc(E, 'UpdateAll', module.UpdateOptions)
 end
