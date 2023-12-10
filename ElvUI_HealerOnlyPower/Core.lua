@@ -69,7 +69,6 @@ function module:UpdateAllFrames(specific)
 		end
 		return
 	end
-	
 
 	-- local frame
 	if specific then
@@ -82,12 +81,13 @@ function module:UpdateAllFrames(specific)
 end
 
 function module:PLAYER_REGEN_ENABLED()
-	if module.NeedsUpdating then
-		module.NeedsUpdating = nil	
-		module:UpdateAllFrames()
+	if not InCombatLockdown() then
+		module:UnregisterEvent('PLAYER_REGEN_ENABLED')
+		if module.NeedsUpdating then
+			module.NeedsUpdating = nil
+			module:UpdateAllFrames()
+		end
 	end
-
-	module:UnregisterEvent('PLAYER_REGEN_ENABLED')
 end
 
 function module:Update_Frames(frame, db)
