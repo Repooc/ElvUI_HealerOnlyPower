@@ -42,9 +42,10 @@ local function configTable()
     -- end
  
     --* Healer Only Power Section
-    local HealerOnlyPower = ACH:Group('|cff00FF98Healer Only|r |cffA330C9Power|r', nil, 6, 'tab', nil, nil, function() return not UF.Initialized end)
+    local HealerOnlyPower = ACH:Group('|cff00FF98Healer Only|r Power|r', nil, 6, 'tab', nil, nil, function() return not UF.Initialized end)
     rrp.args.hop = HealerOnlyPower
-    HealerOnlyPower.args.enable = ACH:Toggle(L["Enable"], nil, 0, nil, nil, nil, function(info) return E.db.hop[info[#info]] end, function(info, value) E.db.hop[info[#info]] = value module:UpdateOptions() module:UpdateAllFrames() end)
+	HealerOnlyPower.args.version = ACH:Header(format('|cff99ff33%s|r', module.Version), 1)
+    HealerOnlyPower.args.enable = ACH:Toggle(L["Enable"], nil, 5, nil, nil, nil, function(info) return E.db.hop[info[#info]] end, function(info, value) E.db.hop[info[#info]] = value module:UpdateOptions() module:UpdateAllFrames() end)
     
     local Help = ACH:Group(L["Help"], nil, 99, nil, nil, nil, false)
 	HealerOnlyPower.args.help = Help
