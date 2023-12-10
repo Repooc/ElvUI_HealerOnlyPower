@@ -1,8 +1,7 @@
 local E, L, _, P, _ = unpack(ElvUI)
 local UF = E.UnitFrames
 local ACH = E.Libs.ACH
-local RRP = LibStub('RepoocReforged-1.0')
-RRP:LoadMainCategory()
+local RRP = LibStub('RepoocReforged-1.0'):LoadMainCategory()
 local AddOnName = ...
 local module = E:GetModule(AddOnName)
 
