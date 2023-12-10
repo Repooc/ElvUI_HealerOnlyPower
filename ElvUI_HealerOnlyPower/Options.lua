@@ -37,7 +37,7 @@ local function configTable()
     if not rrp then print("Error Loading Repooc Reforged Plugin Library") return end
 
     -- if not rrp then
-    --     rrp = ACH:Group('|cff00FF98Repooc Reforged|r |cffA330C9Plugins|r', nil, 6, nil, nil, nil, function() return not UF.Initialized end)
+    --     rrp = ACH:Group('|cff00FF98Repooc Reforged|r |cffA330C9Plugins|r', nil, 6)
 	--     E.Options.args.rrp = rrp
     -- end
  
